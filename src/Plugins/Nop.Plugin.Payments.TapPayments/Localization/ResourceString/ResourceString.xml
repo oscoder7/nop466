@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Language Name="English">
+    <LocaleResource Name="Plugins.Payments.TapPayments.Fields.AdditionalFee">
+        <Value>Additional fee</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Payments.TapPayments.Fields.AdditionalFee.Hint">
+        <Value>Enter additional fee to charge your customers.</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Payments.TapPayments.Fields.AdditionalFeePercentage">
+        <Value>Additional fee. Use percentage</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Payments.TapPayments.Fields.AdditionalFeePercentage.Hint">
+        <Value>Determines whether to apply a percentage additional fee to the order total. If not enabled, a fixed value is used.</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Payments.TapPayments.Fields.PublicKey">
+        <Value>Public key</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Payments.TapPayments.Fields.PublicKey.Hint">
+        <Value>Public key</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Payments.TapPayments.Fields.PrivateKey">
+        <Value>Private key</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Payments.TapPayments.Fields.PrivateKey.Hint">
+        <Value>Private key</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Payments.TapPayments.Fields.MerchantId">
+        <Value>Merchant ID</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Payments.TapPayments.Fields.MerchantId.Hint">
+        <Value>Merchant ID</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Payments.TapPayments.Fields.Language">
+        <Value>Language</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Payments.TapPayments.Fields.Language.Hint">
+        <Value>Language</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Payments.TapPayments.Fields.PaymentMethods">
+        <Value>Payment methods</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Payments.TapPayments.Fields.PaymentMethods.Hint">
+        <Value>Payment methods</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Payments.TapPayments.Fields.ThreeDSecure">
+        <Value>ThreeD Secure</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Payments.TapPayments.Fields.ThreeDSecure.Hint">
+        <Value>Enable for three D Secure</Value>
+    </LocaleResource>
+
+    <LocaleResource Name="Plugins.Payments.TapPayments.Refund.Reason">
+        <Value>Refund from {0}</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Payments.TapPayments.Refund.Description">
+        <Value>{0} order {1}</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Payments.TapPayments.Refund.Exception">
+        <Value>Unable to process refund - an error has occured</Value>
+    </LocaleResource>
+
+    <LocaleResource Name="Plugins.Payments.TapPayments.PaymentMethodDescription">
+        <Value>You will be redirected to Tap site to complete the payment</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Payments.TapPayments.PaymentMethodDescription.All">
+        <Value>Allow customer to pay with every available payment.</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Payments.TapPayments.PaymentMethodDescription.Knet">
+        <Value>KNET payment method accept only KWD currency.</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Payments.TapPayments.PaymentMethodDescription.Cards">
+        <Value>Visa, Mastercard, American Expresss and Mada cards will be covered under card payment method.</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Payments.TapPayments.PaymentMethodDescription.Mada">
+        <Value>Mada payment method accept only SAR currency.</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Payments.TapPayments.PaymentMethodDescription.BENEFIT">
+        <Value>BENEFIT payment method accept only BHD currency and does not support partial refund.</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Payments.TapPayments.PaymentMethodDescription.Fawry">
+        <Value>Fawry payment method accept only EGP currency.</Value>
+    </LocaleResource>
+    
+    <LocaleResource Name="Plugins.Payments.TapPayments.Instructions">
+        <Value><![CDATA[ <p><b>If you're using this gateway ensure that your primary store currency is supported by Tap.</b><br /></p>]]></Value>
+    </LocaleResource>
+</Language>

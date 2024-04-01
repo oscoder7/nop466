@@ -1,0 +1,121 @@
+﻿@{
+    Layout = "_Root.Head";
+}
+@using Nop.Plugin.Payments.TapPayments
+@using Nop.Services.Localization
+@using Nop.Core
+@using Nop.Services.Directory
+@using Nop.Core.Domain.Directory
+
+@inject TapPaymentSettings tapPaymentSettings
+@inject ILocalizationService localizationService
+@inject IWorkContext workContext
+@inject ICurrencyService currencyService
+@inject CurrencySettings currencySettings
+
+@{
+    var currencyCode = (await currencyService.GetCurrencyByIdAsync(currencySettings.PrimaryStoreCurrencyId))?.CurrencyCode;
+
+    var paymentMethod = tapPaymentSettings.PaymentMethods;
+    var message = await localizationService.GetResourceAsync("Plugins.Payments.TapPayments.PaymentMethodDescription");
+    var imageName = "";
+    var isContinue = true;
+    switch (paymentMethod)
+    {
+        case "src_all":
+            message = await localizationService.GetResourceAsync("Plugins.Payments.TapPayments.PaymentMethodDescription.All");
+            imageName = "all";
+            break;
+        case "src_kw.knet":
+            message = await localizationService.GetResourceAsync("Plugins.Payments.TapPayments.PaymentMethodDescription.Knet");
+            isContinue = currencyCode == "KWD";
+            imageName = "KNET.svg";
+            break;
+        case "src_card":
+            message = await localizationService.GetResourceAsync("Plugins.Payments.TapPayments.PaymentMethodDescription.Cards");
+            imageName = "card";
+            break;
+        case "src_sa.mada":
+            message = await localizationService.GetResourceAsync("Plugins.Payments.TapPayments.PaymentMethodDescription.Mada");
+            isContinue = currencyCode == "SAR";
+            imageName = "mada.svg";
+            break;
+        case "src_bh.benefit":
+            message = await localizationService.GetResourceAsync("Plugins.Payments.TapPayments.PaymentMethodDescription.BENEFIT");
+            imageName = "benefit.jpg";
+            isContinue = currencyCode == "BHD";
+            break;
+        case "src_eg.fawry":
+            message = await localizationService.GetResourceAsync("Plugins.Payments.TapPayments.PaymentMethodDescription.Fawry");
+            isContinue = currencyCode == "EGP";
+            imageName = "fawry.svg";
+            break;
+        default:
+            message = await localizationService.GetResourceAsync("Plugins.Payments.TapPayments.PaymentMethodDescription");
+            break;
+    }
+}
+<style>
+    .tap-payment-disable {
+        background-color: #c1c1c1 !important;
+    }
+
+    .tap-payment-message {
+        text-align: center;
+    }
+
+        .tap-payment-message img {
+            width: 100px;
+            padding: 15px;
+        }
+
+        .tap-payment-message b {
+            display: block;
+        }
+</style>
+
+<table width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+        <td>
+            <div class="tap-payment-message">
+                @if (!string.IsNullOrEmpty(imageName))
+                {
+                    if (imageName == "card")
+                    {
+                        <img src="~/Plugins/Payments.TapPayments/Content/img/American_Express.svg" />
+                        <img src="~/Plugins/Payments.TapPayments/Content/img/Mastercard.svg" />
+                        <img src="~/Plugins/Payments.TapPayments/Content/img/visa.svg" />
+                        <img src="~/Plugins/Payments.TapPayments/Content/img/mada.svg" />
+                    }
+                    else if (imageName == "all")
+                    {
+                        <img src="~/Plugins/Payments.TapPayments/Content/img/American_Express.svg" />
+                        <img src="~/Plugins/Payments.TapPayments/Content/img/Mastercard.svg" />
+                        <img src="~/Plugins/Payments.TapPayments/Content/img/visa.svg" />
+                        <img src="~/Plugins/Payments.TapPayments/Content/img/KNET.svg" />
+                        <img src="~/Plugins/Payments.TapPayments/Content/img/benefit.jpg" />
+                        <img src="~/Plugins/Payments.TapPayments/Content/img/fawry.svg" />
+                        <img src="~/Plugins/Payments.TapPayments/Content/img/mada.svg" />
+                    }
+                    else
+                    {
+                        <img src="~/Plugins/Payments.TapPayments/Content/img/@(imageName)" />
+                    }
+                }
+
+                <b>@Html.Raw(message)</b>
+            </div>
+        </td>
+    </tr>
+</table>
+
+@if (!isContinue)
+{
+    <script asp-location="Footer">
+        $(document).ready(function () {
+            $("#payment-info-buttons-container .payment-info-next-step-button").attr("disabled", true);
+            $("#payment-info-buttons-container .payment-info-next-step-button").addClass("tap-payment-disable");
+        });
+    </script>
+
+}
